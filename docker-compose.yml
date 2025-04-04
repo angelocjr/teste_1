@@ -45,7 +45,10 @@ services:
       context: .
       dockerfile: project/Dockerfile
     container_name: entrevista_sidekiq
-    command: bundle exec sidekiq -C project/config/sidekiq.yml -r ./project/config/environment.rb
+    volumes:
+      - ./project:/app
+    working_dir: /app
+    command: bundle exec sidekiq -C config/sidekiq.yml 
     depends_on:
       - redis
       - app
