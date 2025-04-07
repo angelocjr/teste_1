@@ -1,6 +1,14 @@
 Rails.application.routes.draw do
   namespace 'web_test' do
     get 'welcome', to: 'welcome#index'
+
+    get 'welcome/create', to: 'welcome#create'
+
+    get 'welcome/update', to: 'welcome#update'
+
+    get 'welcome/delete', to: 'welcome#delete'
+
+    get 'welcome/aleatory_din', to: 'welcome#aleatory_din'
   end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

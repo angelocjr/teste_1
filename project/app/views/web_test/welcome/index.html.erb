@@ -1,1 +1,35 @@
-welcome
+<div>
+  <table class='table-body'>
+    <tr role="row">
+      <th>
+        Nome
+      </th>
+      <th>
+        Avaliação
+      </th>
+      <th>
+        <div class='flex-center'>
+          <span><%= link_to '+', web_test_welcome_create_path, method: :get %></span>
+        </div>
+      </th>
+    </tr>
+
+    <% [1,2,3,4].each do |permission|%>
+      <tr>
+        <td><%= permission %></td>
+        <td><%= permission %></td>
+        <td>
+          <div class='flex-center'>
+            <span><%= link_to 'Up', web_test_welcome_update_path, method: :get%></span>
+            <span><%= link_to 'Del', web_test_welcome_delete_path, method: :get%></span>
+          <div>
+        </td>
+      </tr>
+    <%end%>
+  </table>
+  <div class='flex-center'>
+    <span class='button-aleat'>
+      <%= link_to 'Dinâmica Aleatória', web_test_welcome_aleatory_din_path, method: :get%>
+    </span>
+  <div>
+</div>

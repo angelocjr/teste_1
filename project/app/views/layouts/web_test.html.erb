@@ -2,16 +2,16 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>WEB_TEST1</title>
+    <title>Dinamycs</title>
     <%= stylesheet_link_tag 'web_test' %>
   </head>
   
   <body>
-    <p>web_test</p>
-    <div>
+    <div class='container-body'>
+      <h1>Dinamycs</h1>
       <%= yield %>
     </div>
-    <%= javascript_include_tag 'web_test' %>
+    <%= javascript_include_tag "web_test", "data-turbo-track": "reload" %>
   </body>
 
 </html>
