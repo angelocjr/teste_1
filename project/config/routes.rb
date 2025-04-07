@@ -1,14 +1,19 @@
 Rails.application.routes.draw do
+  get '/',                                          to: 'welcome#index'
+
   namespace 'web_test' do
-    get 'welcome', to: 'welcome#index'
+    get     'welcome',                              to: 'welcome#index'
 
-    get 'welcome/create', to: 'welcome#create'
+    get     'welcome/create',                       to: 'welcome#create'
+    post    'welcome/create_dynamic',               to: 'welcome#create_dynamic'
 
-    get 'welcome/update', to: 'welcome#update'
+    get     'welcome/update',                       to: 'welcome#update'
+    patch   'welcome/update_dynamic',               to: 'welcome#update_dynamic'
 
-    get 'welcome/delete', to: 'welcome#delete'
+    get     'welcome/delete',                       to: 'welcome#delete'
+    delete  'welcome/delete_dynamic',               to: 'welcome#delete_dynamic'
 
-    get 'welcome/aleatory_din', to: 'welcome#aleatory_din'
+    get     'welcome/aleatory_din',                 to: 'welcome#aleatory_din'
   end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

@@ -3,7 +3,6 @@ class CreateReviews < ActiveRecord::Migration[7.1]
     create_table :reviews do |t|
       t.text :comment
       t.integer :note
-
       t.timestamps
     end
   end

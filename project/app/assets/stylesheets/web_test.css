@@ -94,3 +94,41 @@
 .button-aleat:hover {
   background: #85a29e;
 }
+
+.formulary {
+}
+
+.formulary input {
+  border-color: #f59330;
+  border-radius: 5px;
+  width: 100%;
+  height: 30px;
+  color: #85a29e;
+  transition: all 0.3s ease;
+}
+
+.formulary textarea {
+  border-color: #f59330;
+  border-radius: 5px;
+  width: 100%;
+  height: 80px;
+  color: #85a29e;
+  transition: all 0.3s ease;
+}
+
+.formulary-button {
+  padding: 5px;
+  background-color: #f59330;
+  color: #ffebbf !important;
+  cursor: pointer;
+  border-radius: 5px;
+  width: auto !important;
+  height: 30px;
+  transition: all 0.3s ease;
+}
+
+.formulary-button:hover {
+  background-color: #f0d442 !important;
+}
+
+
