@@ -1,4 +1,5 @@
 class WebTest::WelcomeController < WebTestController
+  before_action :terminal_log
   before_action :define_dynamic
   before_action :define_dynamic_by_params, only: [:delete, :delete_dynamic, :update, :update_dynamic]
   before_action :get_all_dynamic, only: [:index]
@@ -9,57 +10,81 @@ class WebTest::WelcomeController < WebTestController
   end
   
   def index
+    log("Acesso welcome page")
   end
 
   def create
+    log("Acesso create page")
   end
 
   def update
+    log("Acesso update page, dinamica id:#{@dynamic.id} selecionada.")
   end
 
   def delete
+    log("Acesso delete page, dinamica id:#{@dynamic.id} selecionada.")
   end
 
   def create_dynamic 
+    log("Começo do fluxo do create_dynamic")
     parameters = take_and_treat_parameters
+    log("Parametros tratados para criar usuário: #{parameters}")
     error_name_exist?(parameters)
+    log("Verificando se o nome existe: #{error_name_exist?(parameters)}") 
     
     if @erro.present?
-      redirect_to web_test_welcome_path, notice: @erro
+      log("Erros encontrados: #{@erro}")
+      redirect_to web_test_welcome_path
     else
       create_dynamic_database(parameters)
       dynamic = find_dynamic_by_name(parameters[:name])
+      log("Dinamica id criada com sucesso: #{dynamic.id}")
       create_review_database(dynamic, parameters)
-      redirect_to web_test_welcome_path, notice: 'Criado com sucesso!!!'
+      log("Review criada para dinamica id:#{dynamic.id}, redirecionando welcome_path")
+      log("Fim do fluxo do create_dynamic")
+      redirect_to web_test_welcome_path
     end
   end
 
   def update_dynamic
+    log("Começo do fluxo do update_dynamic")
     parameters = take_and_treat_parameters
+    log("Parametros tratados para atualizar usuário: #{parameters}")
     error_name_dont_exist?(parameters)
-
+    log("Verificando se o nome não existe: #{error_name_dont_exist?(parameters)}")
     if @erro.present?
+      log("Erros encontrados: #{@erro}")
       redirect_to web_test_welcome_path, notice: @erro
     else
       dynamic = find_dynamic_by_name(parameters[:name])
+      log("Dynamica id selecionada para atualização: #{dynamic.id}")
       update_dynamic_database(dynamic, parameters)
+      log("Dynamica id atualizada: #{dynamic.id}")
       create_review_database(dynamic, parameters)
-      redirect_to web_test_welcome_path, notice: 'Atualizado com sucesso!!!'
+      log("Criado uma nova review para dynamica id: #{dynamic.id}, redirecionando welcome_path")
+      log("Fim do fluxo do update_dynamic")
+      redirect_to web_test_welcome_path
     end
   end
 
   def delete_dynamic
+    log("Começo do fluxo do delete_dynamic")
     delete_all_reviews
+    log("Todas as Reviews da dinamica id: #{@dynamic.id} apagados")
+    log("Apagando a dinamica id:#{@dynamic.id}")
     delete_dynamic_database
-    redirect_to web_test_welcome_path, notice: 'Excluido com sucesso!!!'
+    log("Dinamica apagada, redirecionando welcome_path")
+    log("Fim do fluxo do delete_dynamic")
+    redirect_to web_test_welcome_path
   end
 
   def aleatory_din
+    log("Selecionado dinamica aleatoria de id: #{@dynamic.id}")
     redirect_to web_test_welcome_path(@dynamic)
   end
 
   private
-  
+
   def cont_dynamic
     return WebTest::DynamicController.new
   end

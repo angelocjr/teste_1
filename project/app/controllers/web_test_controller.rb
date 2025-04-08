@@ -1,3 +1,4 @@
+require 'logger'
 class WebTestController < ApplicationController
   layout 'web_test'
 
@@ -23,5 +24,15 @@ class WebTestController < ApplicationController
   def insert_error(text)
     @erro = [] unless @erro.present?
     @erro << text
+  end
+
+  def terminal_log
+    Rails.logger = Logger.new(STDOUT)
+    Rails.logger.level = Logger::DEBUG
+    log("Log ativado!!!")
+  end
+
+  def log(txt)
+    Rails.logger.debug txt
   end
 end
