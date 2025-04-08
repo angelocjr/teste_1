@@ -88,7 +88,7 @@
 
 .button-aleat {
   padding-top: 10px;
-  margin-top: 10px;
+  margin: 10px;
   height: 30px;
   width: auto;
   background: #b22148;
@@ -167,3 +167,31 @@
 .button-delete:hover {
   background-color: #85a29e;
 }
+
+.search {
+
+}
+
+.search input{
+  border-color: #f59330;
+  border-radius: 5px;
+  width: 70%;
+  height: 30px;
+  color: #85a29e;
+}
+
+.search button{
+  padding: 5px;
+  background-color: #f59330;
+  color: #ffebbf !important;
+  cursor: pointer;
+  border-radius: 10px;
+  width: 50px;
+  height: 50px;
+  transition: all 0.3s ease;
+}
+
+.search:hover button{
+  background-color: #f0d442 !important;
+}
+

@@ -1,4 +1,5 @@
 class WebTest::WelcomeController < WebTestController
+  before_action :get_users
   before_action :terminal_log
   before_action :define_dynamic
   before_action :define_dynamic_by_params, only: [:delete, :delete_dynamic, :update, :update_dynamic]
@@ -83,7 +84,18 @@ class WebTest::WelcomeController < WebTestController
     redirect_to web_test_welcome_path(@dynamic)
   end
 
+  def search_din
+    log("Pesquisa dos caracteres #{params[:search]} e armazenando pesquisa no redis")
+    result_search = find_dynamic_by_string(params[:search])
+    $redis.set("return_string: #{params[:search]}", "return_id: #{result_search}")
+    redirect_to web_test_welcome_path(result_search)
+  end
+
   private
+
+  def get_users
+    @list_users = WebTest::User::HASH_USER_MAPPER
+  end
 
   def cont_dynamic
     return WebTest::DynamicController.new
@@ -119,6 +131,10 @@ class WebTest::WelcomeController < WebTestController
 
   def find_dynamic_by_name(name)
     return cont_dynamic.find_dynamic_by_name(name)
+  end
+
+  def find_dynamic_by_string(string)
+    return cont_dynamic.find_dynamic_by_string(string)
   end
 
   def error_name_exist?(parameters)

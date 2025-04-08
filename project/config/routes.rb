@@ -15,6 +15,8 @@ Rails.application.routes.draw do
     delete  'welcome/delete_dynamic',               to: 'welcome#delete_dynamic'
 
     get     'welcome/aleatory_din',                 to: 'welcome#aleatory_din'
+    
+    get     'welcome/search_din',                   to: 'welcome#search_din'
   end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

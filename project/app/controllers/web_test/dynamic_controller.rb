@@ -43,6 +43,12 @@ class WebTest::DynamicController < WebTestController
     end
   end
 
+  def find_dynamic_by_string(string)
+    if model.where("name LIKE ?","%#{string}%").present?
+      return model.where("name LIKE ?","%#{string}%").pluck(:id)
+    end
+  end
+
   private
 
   def model

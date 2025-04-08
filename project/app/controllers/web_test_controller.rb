@@ -27,7 +27,7 @@ class WebTestController < ApplicationController
   end
 
   def terminal_log
-    Rails.logger = Logger.new(STDOUT)
+    Rails.logger = Logger.new(Rails.root.join("log/debug.log"))
     Rails.logger.level = Logger::DEBUG
     log("Log ativado!!!")
   end
