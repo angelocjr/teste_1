@@ -12,6 +12,8 @@ A estrutura de controllers inclui três controladores principais:
 •	**dynamica_controller.rb** e **review_controller.rb**, que se encarregam das ações de CRUD (criação, leitura, atualização e exclusão) referentes às dinâmicas e avaliações, interagindo diretamente com os respectivos models.
 Além disso, utilizei um layout base com yield, prática comum no Rails que permite a injeção de conteúdo dinâmico em uma estrutura de layout reutilizável. Essa abordagem garante consistência visual entre as páginas e facilita a manutenção da interface da aplicação.
 
+Existe um arquivo de logs no arquivo de logs do rails e o redis está captando as pesquisas do formulario de pesquisas.
+
 ---Coisas que faltaram e que talvez entendi errado:
 
 Trouxe uma lista de usuários de uma variavel dentro do model user e printei na view principal como foi pedido no arquivo, não sabia se era necessario desenvolver um sistema de login, provavelmente iria utilizar da gem do devise para executar essa ação.
@@ -34,7 +36,7 @@ O sistema é bem simples, para criação de dinamica e primeira review para a di
 
 Para adicionar mais reviews a uma dinamica, clicar em (UP), inserir nota e comentario, caso queria atualizar a descrição da dinamica, apenas inserir o texto no campo de descrição e clickar (enviar).
 
-Para excluir dinamica, clickar el (Del).
+Para excluir dinamica, clickar em (Del).
 
 Botão dinamica aleatoria traz uma dinamica aleatoria.
 
