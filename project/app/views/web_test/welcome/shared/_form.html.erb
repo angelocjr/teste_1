@@ -1,5 +1,5 @@
-<%= form_with(model: @dynamic, url: web_test_welcome_create_dynamic_path, class: 'formulary') do |form| %>
-  <p><%= form.text_field :name, placeholder: 'Nome'%></p>
+<%= form_with(model: @dynamic, url: url_define_action(params), class: 'formulary', method: method_define_action(params)) do |form| %>
+  <p><%= form.text_field :name, placeholder: 'Nome', readonly: active_readonly_by_action(params)%></p>
   <p><%= form.text_area  :description, placeholder: 'Descrição'%></p>
 
   <table class='table-body'>
@@ -12,8 +12,8 @@
       </th>
     </tr>
 
-    <% if @review.present? %>
-      <% @reviews.each do |review|%>
+    <% if @dynamic.reviews.present? %>
+      <% @dynamic.reviews.each do |review|%>
         <tr>
           <td><%= review.comment %></td>
           <td><%= review.note %></td>
@@ -21,12 +21,12 @@
       <%end%>
     <%else%>
       <tr>
-        <td><%= "Não existe reviews" %></td>
+        <td colspan="2"><%= "Não existe reviews" %></td>
       </tr>
     <%end%>
   </table>
 
-  <p><%= form.number_field :review, step: 1, min: 1, max: 5, placeholder: 'review'%></p>
+  <p><%= form.number_field :note, step: 1, min: 1, max: 5, placeholder: 'nota'%></p>
   <p><%= form.text_area :comment, placeholder: 'Comentario'%></p>
   <p><%= form.submit "Enviar", class: 'formulary-button' %></p>
 <% end %>

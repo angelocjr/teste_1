@@ -1,12 +1,12 @@
 <div>
   <table class='table-body'>
     <tr role="row">
-      <th>
-        Nome
-      </th>
-      <th>
-        Avaliação
-      </th>
+        <th>
+          Nome
+        </th>
+        <th>
+          Avaliação
+        </th>
       <th>
         <div class='flex-center'>
           <span><%= link_to '+', web_test_welcome_create_path, method: :get %></span>
@@ -17,12 +17,16 @@
       <% @dynamics.each do |dynamic|%>
         <tr>
           <td><%= dynamic.name %></td>
-          <td><%= dynamic.id %></td>
+          <td>
+            <% media(dynamic).times do %>
+              ⭐
+            <% end %>
+          </td>
           <td>
             <div class='flex-center'>
               <span><%= link_to 'Up', web_test_welcome_update_path(dynamic.id), method: :get%></span>
               <span><%= link_to 'Del', web_test_welcome_delete_path(dynamic.id), method: :get%></span>
-            <div>
+            </div>
           </td>
         </tr>
       <%end%>

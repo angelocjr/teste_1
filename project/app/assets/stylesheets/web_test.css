@@ -22,8 +22,14 @@
   border-radius: 10px;
 }
 
+.container-body a {
+  text-decoration: none;
+  color: #ffebbf;
+}
+
 .table-body {
   width: 100%;
+  height: auto;
   border-collapse: collapse;
   border-radius: 12px;
   overflow: hidden;
@@ -38,7 +44,12 @@
 }
 
 .table-body th {
+  text-align: center;
   padding: 14px 20px;
+}
+
+.table-body td {
+  text-align: center;
 }
 
 .table-body tbody tr {
@@ -92,7 +103,7 @@
 }
 
 .button-aleat:hover {
-  background: #85a29e;
+  background-color: #85a29e;
 }
 
 .formulary {
@@ -131,4 +142,28 @@
   background-color: #f0d442 !important;
 }
 
+.h2-delete {
+  background: #f59330;
+  color: #ffebbf;
+  padding: 5px;
+  width: auto;
+  text-align: center;
+  border-radius: 10px;
+  size: 20px;
+}
 
+.button-delete {
+  margin: 10px;
+  height: 30px;
+  width: auto;
+  background-color: #b22148;
+  border-color: #b22148;
+  border-radius: 25px;
+  color: #f59330;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.button-delete:hover {
+  background-color: #85a29e;
+}

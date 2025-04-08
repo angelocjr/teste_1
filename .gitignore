@@ -1,0 +1,8 @@
+/tmp/
+/public/
+project/tmp/
+project/public/
+projetc/.env
+projetc/.env.*.local
+projetc/config/master.key
+projetc/config/credentials.yml.enc

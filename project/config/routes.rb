@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
-  get '/',                                          to: 'welcome#index'
+  get '/',                                          to: 'web_test/welcome#index'
 
   namespace 'web_test' do
+    get     '/',                                    to: 'welcome#index'
     get     'welcome',                              to: 'welcome#index'
 
     get     'welcome/create',                       to: 'welcome#create'

@@ -8,14 +8,13 @@ class WebTest::Dynamic < ApplicationRecord
     )
   end
 
-  def self.update_dynamic(params, dynamic)
+  def self.update_dynamic(dynamic, params)
     dynamic.update(
-      name: params[:name],
       description: params[:description]
     )
   end
 
-  def self.delete_dynamic(params, dynamic)
+  def self.delete_dynamic(dynamic)
     dynamic.destroy
   end
 end
